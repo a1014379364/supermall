@@ -1,0 +1,30 @@
+export default [
+  {
+    name:'首页',
+    imgURL:'@/assets/img/tabbar/home.svg',
+    activeImgURL:'@/assets/img/tabbar/home_active.svg',
+    routerPath:'/home',
+    activeColor:'rgb(238,177,116)'
+  },
+  {
+    name:'分类',
+    imgURL:'@/assets/img/tabbar/fenlei.svg',
+    activeImgURL:'@/assets/img/tabbar/fenlei_active.svg',
+    routerPath:'/fenlei',
+    activeColor:'rgb(238,177,116)'
+  },
+  {
+    name:'购物车',
+    imgURL:'@/assets/img/tabbar/gouwuche.svg',
+    activeImgURL:'@/assets/img/tabbar/gouwuche_active.svg',
+    routerPath:'/cart',
+    activeColor:'rgb(238,177,116)'
+  },
+  {
+    name:'我的',
+    imgURL:'@/assets/img/tabbar/wode.svg',
+    activeImgURL:'@/assets/img/tabbar/wode_active.svg',
+    routerPath:'/profile',
+    activeColor:'rgb(238,177,116)'
+  }
+]
