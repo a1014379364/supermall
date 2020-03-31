@@ -13,10 +13,10 @@
 //   }
 // }
 
-module.exports = {
-  chainWebpack: config => {
-    config.resolve.alias
-        .set("assets", resolve("@/assets"))
-        .set("components", resolve("@/components"))
-  },
-}
+// module.exports = {
+//   chainWebpack: config => {
+//     config.resolve.alias
+//         .set("assets", resolve("@/assets"))
+//         .set("components", resolve("@/components"))
+//   },
+// }

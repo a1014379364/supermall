@@ -28,13 +28,13 @@
   import TabBarItem from "@/components/common/tabbar/TabBarItem";
 
   //加载数据
-  import tabBarDate from '@/Date/tabBarDate.js'
+  // import tabBarDate from '@/Date/tabBarDate.js'
 
   export default {
     name:'MainTabBar',
     data(){
       return{
-        tabBarDate
+        // tabBarDate
       }
     },
     components:{

@@ -3,12 +3,12 @@
     <!--中间内容-->
     <router-view></router-view>
     <!--底部导航-->
-    <MainTabBar></MainTabBar>
+    <MainTabBar class="mainTabBar"></MainTabBar>
   </div>
 </template>
 
 <script>
-  import MainTabBar from "@/components/content/MainTabBar";
+  import MainTabBar from "@/components/content/mainTabBar/MainTabBar";
 
   export default {
     name:'App',
@@ -24,4 +24,8 @@
 
 <style>
   @import "./assets/base.css";
+
+  /*.mainTabBar{*/
+  /*  z-index: 999;*/
+  /*}*/
 </style>
