@@ -28,13 +28,14 @@
     methods:{
       isActive(index){
         this.activeIndex = index;
-        switch (index) {
-          case 0:this.$emit('getType','pop')
-            break
-          case 1:this.$emit('getType','new')
-            break
-          case 2:this.$emit('getType','sell')
-        }
+        this.$emit('getType',index)
+        // switch (index) {
+        //   case 0:this.$emit('getType','pop')
+        //     break
+        //   case 1:this.$emit('getType','new')
+        //     break
+        //   case 2:this.$emit('getType','sell')
+        // }
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
-  <div class="goodsItem">
-    <img :src="goodsItem.show.img" alt="">
+  <div class="goodsItem" @click="itemClick">
+    <img :src="goodsItem.show.img" alt="" @load="imageLoad">
     <div class="goodsInfo">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -18,6 +18,14 @@
         default(){
           return {}
         }
+      }
+    },
+    methods:{
+      imageLoad(){
+        this.$bus.$emit('itemImageLoad')
+      },
+      itemClick(){
+        this.$router.push('/detail/'+this.goodsItem.iid)
       }
     }
   }
@@ -68,7 +76,7 @@
     top:-1px;
     width: 14px;
     height: 14px;
-    background: url("../../../assets/img/common/shoucang.svg") 0 0/14px 14px;
+    background: url("~@/assets/img/common/shoucang.svg") 0 0/14px 14px;
     /*vertical-align: middle;*/
   }
 </style>

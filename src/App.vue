@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <!--中间内容-->
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <!--底部导航-->
     <MainTabBar class="mainTabBar"></MainTabBar>
   </div>
@@ -25,7 +27,7 @@
 <style>
   @import "./assets/base.css";
 
-  /*.mainTabBar{*/
-  /*  z-index: 999;*/
-  /*}*/
+  #app{
+    position: relative;
+  }
 </style>

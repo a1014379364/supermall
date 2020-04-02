@@ -2,7 +2,7 @@
   <el-carousel height="185px" style="margin-top: 44px">
     <el-carousel-item v-for="item in banners" :key="item.title">
       <a :href="item.link">
-        <img :src="item.image" alt="" height="185px" width="100%">
+        <img :src="item.image" alt="" height="185px" width="100%" @load="loadImage">
       </a>
     </el-carousel-item>
   </el-carousel>
@@ -15,7 +15,17 @@
       banners:{
         type:Array,
         default(){
-          return []
+          return {
+            isLoad:false
+          }
+        }
+      }
+    },
+    methods:{
+      loadImage(){
+        if(!this.isLoad){
+          this.$emit('swiperImageLoad')
+          this.isLoad = true
         }
       }
     }

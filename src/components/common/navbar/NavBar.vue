@@ -15,10 +15,10 @@
 <style scoped>
   .navBar{
     display: flex;
-    position: fixed;
-    right: 0;
-    left: 0;
-    top: 0;
+    /*position: fixed;*/
+    /*right: 0;*/
+    /*left: 0;*/
+    /*top: 0;*/
 
     line-height: 44px;
   }
