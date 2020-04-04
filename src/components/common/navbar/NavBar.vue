@@ -25,7 +25,7 @@
 
   .navBar > .navBar-left,
   .navBar > .navBar-right{
-    width: 12%;
+    width: 20%;
     /*background-color: red;*/
   }
 

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--中间内容-->
-    <keep-alive>
+    <keep-alive exclude="Detail">
       <router-view></router-view>
     </keep-alive>
     <!--底部导航-->

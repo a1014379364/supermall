@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <NavBar class="home-nav">
-      <h2 slot="navBar-middle" style="color: #fff;text-align: center">购物街</h2>
+      <h2 slot="navBar-middle">购物街</h2>
     </NavBar>
     <TabControl @getType="getType"
                 class="tabControl"
@@ -163,6 +163,10 @@
     box-shadow: 0 1px 1px rgba(238,177,116,.1);
     background-color: rgb(238,177,116);
     /*z-index: 9;*/
+  }
+  .home-nav h2{
+    color: #fff;
+    text-align: center;
   }
 
   .tabControl{
