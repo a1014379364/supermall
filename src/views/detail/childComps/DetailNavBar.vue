@@ -36,6 +36,7 @@
     methods:{
       itemClick(index){
         this.activeIndex = index
+        this.$emit('navClick',index)
       },
       back(){
         this.$router.back()

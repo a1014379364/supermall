@@ -50,5 +50,7 @@
 </script>
 
 <style scoped>
-
+  .goodsInfo{
+    border-bottom: 6px solid #f6f6f6;
+  }
 </style>
