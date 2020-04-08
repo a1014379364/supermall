@@ -72,7 +72,9 @@
 
   .info-other{
     display: flex;
+    /*margin: 0 12px;*/
     /*padding-bottom: 10px;*/
+    border-bottom: 1px solid #f6f6f6;
   }
   .info-other span{
     color: #b1b1b1;
@@ -80,7 +82,6 @@
     flex: 1;
     padding: 8px 0;
     margin: 0 8px;
-    border-bottom: 1px solid #f6f6f6;
   }
 
   .info-service{

@@ -18,3 +18,4 @@ export const itemListenerMixin = {
     this.$bus.$off('itemImageLoad',this.itemImgListener)
   }
 }
+

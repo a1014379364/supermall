@@ -1,6 +1,6 @@
 <template>
   <div class="detail">
-    <DetailNavBar :iid="iid" @navClick="navClick"></DetailNavBar>
+    <DetailNavBar :iid="iid" @navClick="navClick" ref="nav"></DetailNavBar>
     <Scroll class="content"
             ref="scroll"
             :probeType="3"
@@ -13,6 +13,7 @@
       <DetailCommentInfo :commentInfo="commentInfo" ref="comment"></DetailCommentInfo>
       <GoodList :goods="recommends" ref="recommends"></GoodList>
     </Scroll>
+    <DetailBottomBar @addToCart="addToCart"></DetailBottomBar>
   </div>
 </template>
 
@@ -24,6 +25,7 @@
   import DetailGoodsInfo from "./childComps/DetailGoodsInfo";
   import DetailParamInfo from "./childComps/DetailParamInfo";
   import DetailCommentInfo from "./childComps/DetailCommentInfo";
+  import DetailBottomBar from "./childComps/DetailBottomBar";
 
   import Scroll from "@/components/common/scroll/Scroll";
   import GoodList from "@/components/content/goods/GoodList";
@@ -48,7 +50,8 @@
         recommends:[],
         // itemImgListener:null,
         themeTopYs:[],
-        getThemeTopY:null
+        getThemeTopY:null,
+        activeIndex:0
       }
     },
     components:{
@@ -59,6 +62,7 @@
       DetailGoodsInfo,
       DetailParamInfo,
       DetailCommentInfo,
+      DetailBottomBar,
 
       Scroll,
       GoodList
@@ -107,6 +111,7 @@
         this.themeTopYs.push(this.$refs.params.$el.offsetTop)
         this.themeTopYs.push(this.$refs.comment.$el.offsetTop)
         this.themeTopYs.push(this.$refs.recommends.$el.offsetTop)
+        this.themeTopYs.push(Number.MAX_VALUE)
         // console.log(this.themeTopYs);
       })
     },
@@ -117,6 +122,9 @@
       //   refresh()
       // }
       // this.$bus.$on('itemImageLoad',this.itemImgListener)
+    },
+    activated(){
+      this.$refs.scroll.refresh()
     },
     deactivated(){
       // this.$bus.$off('itemImageLoad',this.itemImgListener)
@@ -133,6 +141,38 @@
       },
       contentScroll(position){
         const positionY = -position.y
+
+        let length = this.themeTopYs.length
+        for(let i = 0;i < length-1;i++){
+          if((this.activeIndex !== i) &&
+              (positionY >= this.themeTopYs[i] && positionY < this.themeTopYs[i+1])){
+          // if( (this.activeIndex !== i) &&
+          //     (i < length - 1 && positionY >= this.themeTopYs[i] && positionY < this.themeTopYs[i + 1]) ||
+          //     (i === length - 1 && positionY >= this.themeTopYs[i])){
+
+            // console.log(i);
+            this.activeIndex = i
+            // console.log(this.activeIndex);
+            this.$refs.nav.activeIndex = this.activeIndex
+          }
+        }
+      },
+      addToCart(){
+        //获取商品在购物车里面展示的信息
+        const product = {}
+        product.image = this.topImages[0]
+        product.title = this.goods.title
+        product.desc = this.goods.desc
+        product.price = this.goods.realPrice
+        product.iid = this.iid
+        // console.log(product);
+
+        //把已经获取的信息传递到购物车
+        // this.$store.commit('addCart',product)
+        this.$store.dispatch('addCart',product).then(res => {
+          // console.log(res);
+          this.$toast.show(res,1500)
+        })
       }
     }
   }
